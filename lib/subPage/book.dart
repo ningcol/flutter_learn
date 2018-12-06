@@ -10,14 +10,17 @@ class _BookState extends State<Book> {
   Widget build(BuildContext context) {
     return new MaterialApp(
       title: "aaaaa",
-        home: new Scaffold(
-          appBar: new AppBar(
-            title: new Text('Welcome to Book'),
-          ),
-          body: new Center(
-            child: new Text("this is a book page"),
-          ),
-        )
+      theme: new ThemeData(
+        primaryColor: Colors.green,
+      ),
+      home: new Scaffold(
+        appBar: new AppBar(
+          title: new Text('Welcome to Book'),
+        ),
+        body: new Center(
+          child: new Text("this is a book page"),
+        ),
+      )
     );
   }
 }
