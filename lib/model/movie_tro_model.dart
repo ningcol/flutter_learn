@@ -1,12 +1,26 @@
 
 class MovieIntroModel{
-  String _name;
-  String _age;
+  final String title;
+  final String type;
+  final String year;
+  final String score;
 
-  get name => _name;
-  set name(value) => _name = value;
+  MovieIntroModel(this.title, this.type, this.year, this.score);
 
-  get age => _age;
-  set age(value) => _age = value;
+  MovieIntroModel.fromJson(Map<String, dynamic> json):
+        title = json['title'],
+        type = json['type'],
+        year = json['year'],
+        score = json['score'];
+
+
+  Map<String, dynamic> toJson() =>
+      {
+        'title': title,
+        'type': type,
+        'year': year,
+        'score': score,
+      };
+
 
 }

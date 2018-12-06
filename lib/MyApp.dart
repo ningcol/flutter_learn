@@ -1,5 +1,5 @@
-import 'package:douabn/subPage/book.dart';
-import 'package:douabn/subPage/movie.dart';
+import 'package:douabn/controller//book.dart';
+import 'package:douabn/controller/movie.dart';
 import 'package:flutter/material.dart';
 
 
