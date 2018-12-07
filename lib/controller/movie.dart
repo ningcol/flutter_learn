@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:douabn/view/movie_intro_cell.dart';
 import 'package:douabn/model/movie_tro_model.dart';
 
+import 'package:http/http.dart' as http;
+
 
 class Movie extends StatefulWidget {
   @override
@@ -14,7 +16,7 @@ class _MovieState extends State<Movie> with SingleTickerProviderStateMixin {
   List<Map<String,String>> _list ;
   List<MovieIntroModel> _modelList;
   
-  void initState() {
+  void initState(){
     super.initState();
     _tabController = new TabController(vsync: this, length: 3);
 
@@ -62,9 +64,15 @@ class _MovieState extends State<Movie> with SingleTickerProviderStateMixin {
     for (var value in _list) {
        _modelList.add(new MovieIntroModel.fromJson(value));
     }
+    _getData();
 
   }
 
+  _getData() async{
+    String url = "https://api.douban.com/v2/movie/in_theaters";
+    http.Response response = await http.get(url);
+    print(response.body);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +96,8 @@ class _MovieState extends State<Movie> with SingleTickerProviderStateMixin {
           new Center(child: new Text("其他")),
           new Center(child: new Text("TOP")),
         ],
-      )
+      ),
+      backgroundColor: Colors.grey,
     );
   }
 
@@ -100,7 +109,6 @@ class _MovieState extends State<Movie> with SingleTickerProviderStateMixin {
       },
     );
   }
-
-
+  
 
 }
