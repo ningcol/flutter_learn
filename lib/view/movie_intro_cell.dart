@@ -1,11 +1,11 @@
-import 'package:douabn/model/movie_tro_model.dart';
+import 'package:douabn/model/movieIntroModel.dart';
 import 'package:flutter/material.dart';
 
 
 
 
 class MovieIntroCell extends StatelessWidget {
-  final MovieIntroModel model;
+  final Subjects model;
 
   MovieIntroCell({this.model});
 
@@ -47,7 +47,7 @@ class MovieIntroCell extends StatelessWidget {
                 new Container(
                   padding: const EdgeInsets.only(bottom: 3.0, left: 12),
                   child: new Text(
-                    "类型：" + model.type,
+                    "类型：" + _type(),
                     style: new TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -65,7 +65,7 @@ class MovieIntroCell extends StatelessWidget {
                 new Container(
                   padding: const EdgeInsets.only(bottom: 3.0, left: 12),
                   child: new Text(
-                    "评分：" + model.score,
+                    "评分：" + model.rating.average.toString(),
                     style: new TextStyle(
                       fontWeight: FontWeight.bold,
                     ),
@@ -95,4 +95,19 @@ class MovieIntroCell extends StatelessWidget {
 
 
   }
+
+  String _type() {
+    String _genres = "";
+    for (var value in model.genres) {
+      _genres = _genres + value + "/ ";
+    }
+    return _genres;
+  }
+
+
+
+
+
+
+
 }
