@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:douabn/view/movie_intro_cell.dart';
 import 'package:douabn/model/movieIntroModel.dart';
 

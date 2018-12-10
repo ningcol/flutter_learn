@@ -1,6 +1,6 @@
 import 'package:douabn/model/movieIntroModel.dart';
 import 'package:flutter/material.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 
 
 
@@ -22,9 +22,10 @@ class MovieIntroCell extends StatelessWidget {
           children: <Widget>[
             new Column(
               children: <Widget>[
-                new Image.asset("images/bg.png",
+                new CachedNetworkImage(
                   width: 100,
-                  fit: BoxFit.cover,
+                  placeholder: new CircularProgressIndicator(),
+                  imageUrl: model.images.small,
                 )
               ],
             ),

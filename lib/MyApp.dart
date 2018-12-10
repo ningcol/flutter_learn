@@ -1,6 +1,7 @@
 import 'package:douabn/controller//book.dart';
 import 'package:douabn/controller/movie.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 
 
 class MyApp extends StatefulWidget {
@@ -64,7 +65,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
 
 
   _getNavigationBar(){
-    return  BottomNavigationBar(
+    return  CupertinoTabBar(
         currentIndex: _currentIndex,
         onTap: (int index){
           if (_currentIndex == index) return; //if you select the same index will return
