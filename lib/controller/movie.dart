@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:douabn/view/movie_intro_cell.dart';
 import 'package:douabn/model/movieIntroModel.dart';
+import 'package:douabn/view/searchTextField.dart';
 
 import 'package:http/http.dart' as http;
 
@@ -45,7 +46,7 @@ class _MovieState extends State<Movie> with SingleTickerProviderStateMixin {
   Widget build(BuildContext context) {
     return new Scaffold(
       appBar: new AppBar(
-        title: new Text("电影"),
+        title: new SearchTextField(),
         bottom: new TabBar(
           controller: _tabController,
           tabs: <Widget>[
