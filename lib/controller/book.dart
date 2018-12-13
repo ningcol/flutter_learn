@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:douabn/controller/testPage.dart';
 
 class Book extends StatefulWidget {
   @override
@@ -9,18 +10,29 @@ class _BookState extends State<Book> {
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
-      title: "aaaaa",
-      theme: new ThemeData(
-        primaryColor: Colors.green,
-      ),
-      home: new Scaffold(
-        appBar: new AppBar(
-          title: new Text('Welcome to Book'),
+        title: "aaaaa",
+        theme: new ThemeData(
+          primaryColor: Colors.green,
         ),
-        body: new Center(
-          child: new Text("this is a book page"),
-        ),
-      )
+        home: new Scaffold(
+            appBar: new AppBar(
+              title: new Text('Welcome to Book'),
+            ),
+            body: new Center(
+              child: new FlatButton(
+                onPressed: () {
+                  Navigator.of(context).push(new MaterialPageRoute(
+                      builder: (context) {
+                        return new TestPage();
+                      }
+                  ));
+                },
+                child: new Text('点击push'),
+              ),
+            )
+        )
     );
   }
+
+
 }

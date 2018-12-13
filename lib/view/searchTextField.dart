@@ -18,7 +18,7 @@ class _SearchTextFieldState extends State<SearchTextField> {
           padding: const EdgeInsets.only(left: 10),
           highlightColor: null,
           onPressed: () {
-            Navigator.of(context).pushReplacement(new MaterialPageRoute(
+            Navigator.of(context).push(new MaterialPageRoute(
                 builder: (context) {
                   return new SearchPage();
                 }
@@ -132,12 +132,18 @@ class _SearchPageState extends State<SearchPage> {
 
   @override
   Widget build(BuildContext context) {
-    return new Scaffold(
+    return new MaterialApp(
+      title: 'testPage',
+      theme: new ThemeData(
+        primaryColor: Colors.pink,
+      ),
+      home: new Scaffold(
         appBar: new AppBar(
           title: inputTextFiled(),
           titleSpacing: 0,  //标题间距
         ),
         body: new Text('adddd'),
+      )
     );
   }
 }

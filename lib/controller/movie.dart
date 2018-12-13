@@ -49,6 +49,9 @@ class _MovieState extends State<Movie> with SingleTickerProviderStateMixin {
         title: new SearchTextField(),
         bottom: new TabBar(
           controller: _tabController,
+          indicatorColor: Colors.yellow,
+          indicatorWeight: 2,
+          indicatorSize: TabBarIndicatorSize.label,
           tabs: <Widget>[
             new Tab(text: "电影"),
             new Tab(text: "其他"),
@@ -59,9 +62,29 @@ class _MovieState extends State<Movie> with SingleTickerProviderStateMixin {
       body: new TabBarView(
         controller: _tabController,
         children: <Widget>[
-//          new Center(child: new Text("电影")),
           _buildListView(),
-          new Center(child: new Text("其他")),
+          new Center(
+            child: new GestureDetector(
+                child: new Text('我是状态为0的item'),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+                      return new AlertDialog(
+                        title: new Text(
+                          'ListViewDemo',
+                          style: new TextStyle(
+                            color: Colors.black54,
+                            fontSize: 18.0,
+                          ),
+                        ),
+                        content: new Text('哈哈哈！当前 item 状态为 0'),
+                      );
+                    },
+                  );
+                },
+            )
+          ),
           new Center(child: new Text("TOP")),
         ],
       ),
