@@ -2,7 +2,7 @@ import 'package:douabn/controller//book.dart';
 import 'package:douabn/controller/movie.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-
+import 'package:douabn/controller/home.dart';
 
 class MyApp extends StatefulWidget {
   @override
@@ -28,6 +28,7 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
     super.initState();
 
     _navigationViews = <NavigationIconView>[
+      new NavigationIconView(icon: new Icon(Icons.home), title: new Text("首页")), // vsync 默认属性和参数
       new NavigationIconView(icon: new Icon(Icons.assessment), title: new Text("电影")), // vsync 默认属性和参数
       new NavigationIconView(icon: new Icon(Icons.all_inclusive), title: new Text("图书")),
 //      new NavigationIconView(icon: new Icon(Icons.add_shopping_cart), title: new Text("市场"), vsync: this),
@@ -35,12 +36,8 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
 //      new NavigationIconView(icon: new Icon(Icons.perm_identity), title: new Text("我的"), vsync: this),
     ];
 
-    // 给每一个按钮区域加上监听
-//    for (NavigationIconView view in _navigationViews) {
-//      view.controller.addListener(_rebuild);
-//    }
-
     _pageList = [
+      new Home(),
       new Movie(),
       new Book()
     ];
@@ -68,12 +65,10 @@ class _MyAppState extends State<MyApp> with TickerProviderStateMixin {
     return  CupertinoTabBar(
         currentIndex: _currentIndex,
         onTap: (int index){
-          if (_currentIndex == index) return; //if you select the same index will return
+          if (_currentIndex == index) return;
           setState(() {
-//            _navigationViews[_currentIndex].controller.reverse();
             _currentIndex = index;
             _currentPage = _pageList[_currentIndex];
-//            _navigationViews[_currentIndex].controller.forward();
           });
         },
         items: _navigationViews.map((NavigationIconView view) => view.item).toList()
