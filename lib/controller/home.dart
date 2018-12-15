@@ -34,15 +34,22 @@ class _HomeState extends State<Home> with SingleTickerProviderStateMixin {
       body: new TabBarView(
         controller: _tabController,
         children: <Widget>[
-          new Center(
-            child: new Text('动态'),
-          ),
+          _listView(),
           new Center(
             child: new Text('推荐'),
           ),
         ],
       ),
 
+    );
+  }
+
+  Widget _listView() {
+    return new ListView.builder(
+      itemCount: 10,
+      itemBuilder: (context, index){
+        return new Text('index'+ index.toString());
+      },
     );
   }
 
